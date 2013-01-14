@@ -1,0 +1,27 @@
+{
+  "name": "rle-csg",
+  "version": "0.0.0",
+  "description": "Constructive solid geometry library for narrow band level sets",
+  "main": "csg.js",
+  "dependencies": {
+    "rle-core": "~0.0.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mikolalysenko/rle-csg.git"
+  },
+  "keywords": [
+    "csg",
+    "boolean",
+    "set",
+    "narrowband",
+    "level",
+    "set",
+    "rle"
+  ],
+  "author": "Mikola Lysenko",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "a0a4cc256baf7c634faa35983df1a3e1f557d998"
+}
