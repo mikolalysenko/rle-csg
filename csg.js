@@ -1,23 +1,28 @@
-var merge = require("./merge.js").merge;
+var merge = require("rle-funcs").merge;
 
-var volume  = require("./volume.js");
-var Run     = volume.Run
-  , Volume  = volume.Volume;
+var SUBTRACT_FUNC = new Function("phases", "distances", "retval", [
+  "if(phases[0]) {",
+    "if(phases[1]) {",
+      "retval[0] = 0;",
+      "retval[1] = distances[1];",
+    "} else {",
+      "retval[0] = 1;",
+      "retval[1] = distances[0];",
+    "}",
+  "} else {",
+    "if(phases[1]) {",
+      "retval[0] = 0;",
+      "retval[1] = Math.min(distances[0], distances[1]);",
+    "} else {",
+      "retval[0] = 0;",
+      "retval[1] = Math.max(distances[0], distances[1]);",
+    "}",
+  "}"
+].join(""));
 
-//Subtract a function
-var SUBTRACT_FUNC   = new Function("a", "return Math.min(a[0],-a[1]);" )
-  , INTERSECT_FUNC  = new Function("a", "return Math.min(a[0], a[1]);" )
-  , UNITE_FUNC      = new Function("a", "return Math.max(a[0], a[1]);" );
+var POINT_STENCIL = new Int32Array(3);
 
 //CSG
-exports.unite      = function(a, b) { return merge([a,b], UNITE_FUNC); }
-exports.intersect  = function(a, b) { return merge([a,b], INTERSECT_FUNC); }
-exports.subtract   = function(a, b) { return merge([a,b], SUBTRACT_FUNC); }
-exports.complement = function(a)    {
-  var nruns = new Array(a.runs.length);
-  for(var i=0; i<nruns.length; ++i) {
-    var r = a.runs[i];
-    nruns[i] = new Run(r.coord.slice(0), r.value);
-  }
-  return new Volume(nruns);
-};
+exports.subtract   = function(a, b) { return merge([a,b], POINT_STENCIL, SUBTRACT_FUNC); }
+
+

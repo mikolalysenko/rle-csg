@@ -1,12 +1,17 @@
 {
   "name": "rle-csg",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Constructive solid geometry library for narrow band level sets",
   "main": "csg.js",
   "dependencies": {
-    "rle-core": "~0.0.1"
+    "rle-funcs": "0.0.*"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "rle-core": "0.0.*",
+    "rle-mesh": "0.0.*",
+    "gl-shells": "*",
+    "jquery-browserify": "*"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/mikolalysenko/rle-csg.git"
