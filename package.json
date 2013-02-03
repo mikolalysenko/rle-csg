@@ -1,6 +1,6 @@
 {
   "name": "rle-csg",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Constructive solid geometry library for narrow band level sets",
   "main": "csg.js",
   "dependencies": {

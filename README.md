@@ -1,7 +1,8 @@
 rle-csg
 =======
+Constructive solid geometry for narrow band level sets.
 
-Constructive solid geometry for narrow band level sets
+
 
 Installation
 ============
@@ -9,16 +10,20 @@ Installation
     npm install rle-csg
 
 
-Methods
-=======
+Usage
+=====
+
+
 
 ## `csg.unite(a, b)`
 
 ## `csg.intersect(a, b)`
 
 ## `csg.subtract(a, b)`
+Subtracts the solid a from b
 
 ## `csg.complement(a)`
+Returns the set-theoretic complement of a
 
 
 Credits

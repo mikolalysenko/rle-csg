@@ -25,4 +25,12 @@ var POINT_STENCIL = new Int32Array(3);
 //CSG
 exports.subtract   = function(a, b) { return merge([a,b], POINT_STENCIL, SUBTRACT_FUNC); }
 
+exports.complement = function(a) {
+  var result = a.clone();
+  for(var i=0; i<result.length(); ++i) {
+    result.phases[i] ^= 1;
+  }
+  return result;
+}
+
 
