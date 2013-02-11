@@ -5,7 +5,7 @@ var $           = require("jquery-browserify")
 
 $(document).ready(function() {
   //Create viewer
-  var viewer = require("gl-shells").makeViewer();
+  var viewer = require("gl-shells").makeViewer({ cullCW: true });
  
  
   //Create a cylinder
