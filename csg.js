@@ -71,7 +71,7 @@ exports.intersect  = function(a, b) {
 }
 
 //Complement
-var COMPLEMENT_FUNC = new Function("p", "d", "retval", "retval[0] = p^1; retval[1] = d;");
+var COMPLEMENT_FUNC = new Function("p", "d", "retval", "retval[0] = p ? 0 : 1; retval[1] = d;");
 exports.complement = function(a) {
   return funcs.applyPoint(a, COMPLEMENT_FUNC);
 }
